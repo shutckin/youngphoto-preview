@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Young Photo - фотограф Александр Шихалев, Киров</title>
+<meta name="description" content="Фотограф Александр Шихалев, Киров. Свадьбы и love story, портреты, репортаж, контент-съёмка. Тёплый закатный свет и живые эмоции. Написать в VK.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --cream: #faf6ef;
+    --card: #ffffff;
+    --ink: #0e1620;
+    --mute: #999999;
+    --line: #d9d9d9;
+    --ember: #fa5c40;
+    --r-photo: 20px;
+    --r-pill: 100px;
+    --font-display: 'Unbounded', 'Arial Black', sans-serif;
+    --font-body: 'Onest', 'Helvetica Neue', Arial, sans-serif;
+    --pad-x: clamp(20px, 4vw, 64px);
+    --section-gap: clamp(72px, 10vw, 160px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Навигация ---------- */
+  .nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(20px, 3vw, 36px) var(--pad-x);
+    color: #fff;
+  }
+  .nav__group { display: flex; gap: clamp(16px, 2.5vw, 36px); flex: 1; }
+  .nav__group--right { justify-content: flex-end; }
+  .nav__link {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.25s;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 1px;
+    background: var(--ember);
+    transition: width 0.3s ease;
+  }
+  .nav__link:hover, .nav__link:focus-visible { opacity: 1; }
+  .nav__link:hover::after, .nav__link:focus-visible::after { width: 100%; }
+  .nav__mark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 12, 18, 0.74) 0%, rgba(10, 12, 18, 0.34) 42%, rgba(10, 12, 18, 0.10) 100%);
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 var(--pad-x) clamp(84px, 13vh, 128px);
+    color: #fff;
+  }
+  .hero__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(34px, 5.6vw, 76px);
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+  .hero__title .line--right { text-align: right; }
+  .hero__meta {
+    margin-top: clamp(22px, 3.4vh, 34px);
+    padding-top: clamp(18px, 2.4vh, 26px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(18px, 4vw, 48px);
+    flex-wrap: wrap;
+  }
+  .hero__lead {
+    max-width: 560px;
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .hero__scroll {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+  .hero__scroll-line {
+    width: 1px; height: 34px;
+    background: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    position: relative;
+  }
+  .hero__scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%; left: 0;
+    width: 100%; height: 100%;
+    background: var(--ember);
+  }
+
+  /* ---------- Общее для секций ---------- */
+  .section { padding: var(--section-gap) var(--pad-x) 0; }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .eyebrow::before {
+    content: '';
+    width: 22px; height: 2px;
+    background: var(--ember);
+    flex-shrink: 0;
+  }
+  .h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(30px, 4.2vw, 56px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .head {
+    display: grid;
+    gap: 16px;
+    margin-bottom: clamp(36px, 5vw, 72px);
+    max-width: 1440px;
+  }
+  .head__note { color: var(--mute); font-size: clamp(15px, 1.3vw, 17px); max-width: 560px; }
+
+  /* ---------- Интро ---------- */
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(180px, 320px) 1fr;
+    gap: clamp(28px, 5vw, 96px);
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .intro__text {
+    max-width: 660px;
+    display: grid;
+    gap: 1.1em;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.55;
+  }
+  .intro__text .accent { color: var(--ember); }
+
+  /* ---------- Работы ---------- */
+  .works { max-width: 1440px; margin: 0 auto; }
+  .mosaic {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 0.85fr;
+    gap: clamp(14px, 2vw, 28px);
+    padding-bottom: 90px;
+  }
+  .mosaic__col { display: grid; gap: clamp(14px, 2vw, 28px); align-content: start; }
+  .mosaic__item {
+    border-radius: var(--r-photo);
+    overflow: hidden;
+    background: var(--card);
+  }
+  .mosaic__item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease);
+  }
+  .mosaic__item:hover img { transform: scale(1.035); }
+  .ar-32 { aspect-ratio: 3 / 2; }
+  .ar-23 { aspect-ratio: 2 / 3; }
+  @media (min-width: 861px) {
+    .mosaic__col--b { transform: translateY(72px); }
+    .mosaic__col--c { transform: translateY(28px); }
+  }
+
+  /* ---------- Услуги ---------- */
+  .services { max-width: 1440px; margin: 0 auto; }
+  .service {
+    display: grid;
+    grid-template-columns: 72px 1fr minmax(120px, 168px);
+    gap: clamp(18px, 3vw, 48px);
+    align-items: center;
+    padding: clamp(22px, 3vw, 36px) 0;
+    border-top: 1px solid var(--line);
+    transition: transform 0.35s var(--ease);
+  }
+  .service:last-of-type { border-bottom: 1px solid var(--line); }
+  .service__num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--mute);
+    position: relative;
+    padding-left: 18px;
+  }
+  .service__num::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    width: 7px; height: 7px;
+    margin-top: -3.5px;
+    border-radius: 50%;
+    background: var(--ember);
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .service__name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(19px, 2.2vw, 30px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .service__desc { color: var(--mute); font-size: 15px; max-width: 560px; }
+  .service__photo {
+    border-radius: var(--r-photo);
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+  }
+  .service__photo--wide { aspect-ratio: 4 / 3; }
+  .service__photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+  }
+  @media (hover: hover) {
+    .service:hover { transform: translateX(10px); }
+    .service:hover .service__num::before { opacity: 1; transform: scale(1); }
+    .service:hover .service__photo img { transform: scale(1.05); }
+  }
+  .services__after {
+    margin-top: clamp(24px, 3vw, 36px);
+    color: var(--mute);
+    font-size: 15px;
+    max-width: 620px;
+  }
+
+  /* ---------- Цитата ---------- */
+  .quote {
+    position: relative;
+    margin-top: var(--section-gap);
+    min-height: clamp(420px, 66vh, 640px);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .quote__img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(75deg, rgba(10, 12, 18, 0.6) 0%, rgba(10, 12, 18, 0.2) 60%, rgba(10, 12, 18, 0) 100%);
+  }
+  .quote__box {
+    position: relative;
+    z-index: 2;
+    margin: 0 var(--pad-x) clamp(48px, 8vh, 88px);
+    max-width: 640px;
+    padding-left: clamp(20px, 2.5vw, 32px);
+    border-left: 2px solid var(--ember);
+    color: #fff;
+  }
+  .quote__text {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(20px, 2.6vw, 34px);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+  .quote__caption {
+    margin-top: 16px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  /* ---------- Контакты ---------- */
+  .contacts {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: var(--section-gap);
+    display: grid;
+    gap: clamp(24px, 3.4vw, 40px);
+  }
+  .contacts__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 72px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    max-width: 900px;
+  }
+  .contacts__lead { color: var(--mute); font-size: clamp(16px, 1.4vw, 18px); max-width: 580px; }
+  .contacts__phone {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(22px, 3vw, 40px);
+    letter-spacing: -0.02em;
+    display: inline-block;
+    width: fit-content;
+    transition: color 0.25s;
+  }
+  .contacts__phone:hover { color: var(--ember); }
+  .contacts__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(18px, 3vw, 36px);
+  }
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--r-pill);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-pill::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--ember);
+    flex-shrink: 0;
+  }
+  .btn-pill:hover, .btn-pill:focus-visible { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .btn-pill--light { border-color: rgba(255, 255, 255, 0.75); color: #fff; }
+  .btn-pill--light:hover, .btn-pill--light:focus-visible { background: #fff; color: var(--ink); border-color: #fff; }
+  .link-plain {
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .link-plain:hover, .link-plain:focus-visible { border-color: var(--ember); color: var(--ember); }
+  .contacts__note { color: var(--mute); font-size: 15px; }
+
+  /* ---------- Футер ---------- */
+  .footer { border-top: 5px solid var(--ember); background: var(--cream); }
+  .footer__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--mute);
+    letter-spacing: 0.04em;
+  }
+  .footer__mark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    color: var(--ink);
+  }
+
+  /* ---------- Анимации ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Скрываем только если JS работает, иначе текст должен быть виден сразу */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+    .reveal--d1 { transition-delay: 0.12s; }
+    .reveal--d2 { transition-delay: 0.24s; }
+    .hero__title .line, .hero__meta {
+      opacity: 0;
+      transform: translateY(34px);
+      animation: heroLine 1.2s var(--ease) 0.3s forwards;
+    }
+    .hero__title .line--right { animation-delay: 0.5s; }
+    .hero__meta { animation-delay: 0.75s; }
+    @keyframes heroLine { to { opacity: 1; transform: none; } }
+    .hero__scroll-line::after { animation: scrollDrip 2s ease-in-out infinite; }
+    @keyframes scrollDrip { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
+  }
+
+  /* ---------- Адаптив ---------- */
+  @media (max-width: 860px) {
+    .mosaic { grid-template-columns: 1fr 1fr; padding-bottom: 0; }
+    .mosaic__col--c { grid-column: 1 / -1; }
+    .intro { grid-template-columns: 1fr; }
+    .service { grid-template-columns: 44px 1fr minmax(96px, 128px); }
+    .nav__group--left { display: none; }
+    .nav__mark { text-align: left; }
+    .hero__meta { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .hero__content { padding-bottom: 72px; }
+    .hero__title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      font-size: clamp(30px, 9.5vw, 44px);
+    }
+    .hero__title .line--right { text-align: left; }
+    .hero__scroll { display: none; }
+    .mosaic { grid-template-columns: 1fr; }
+    .service { grid-template-columns: 1fr; gap: 14px; align-items: start; }
+    .service__num { order: 1; }
+    .service__body { order: 2; }
+    .service__photo { order: 3; max-width: 240px; }
+    .contacts__actions { flex-direction: column; align-items: flex-start; }
+    .footer__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Основная навигация">
+    <div class="nav__group nav__group--left">
+      <a class="nav__link" href="#works">Работы</a>
+      <a class="nav__link" href="#services">Услуги</a>
+    </div>
+    <a class="nav__mark" href="#top" aria-label="Young Photo, на главную">YOUNG&nbsp;PHOTO</a>
+    <div class="nav__group nav__group--right">
+      <a class="nav__link" href="https://vk.com/youngphotooo" target="_blank" rel="noopener">Написать в VK</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero" aria-label="Главный экран">
+    <picture>
+      <source type="image/webp" srcset="img/wed-field.webp">
+      <img class="hero__img" src="img/wed-field.jpg" alt="Пара стоит в цветущем поле на фоне вечернего неба" fetchpriority="high" width="1800" height="1200">
+    </picture>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="line">Тёплый свет</span>
+        <span class="line line--right">и живые люди</span>
+      </h1>
+      <div class="hero__meta">
+        <p class="hero__lead">Александр Шихалев, фотограф из Кирова. Снимаю свадьбы и love story, портреты, репортаж на событиях и контент для соцсетей.</p>
+        <a class="btn-pill btn-pill--light" href="https://vk.com/youngphotooo" target="_blank" rel="noopener">Написать в VK</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span>листайте</span>
+    </div>
+  </section>
+
+  <!-- Интро -->
+  <section class="section" aria-labelledby="intro-eyebrow">
+    <div class="intro">
+      <p class="eyebrow reveal" id="intro-eyebrow">Александр Шихалев, Киров</p>
+      <div class="intro__text">
+        <p class="reveal">Снимаю в Кирове и выезжаю за город, если история этого просит. Чаще всего это свадебный день целиком, короткая love story на прогулке, портрет для себя или для работы, репортаж на празднике и серия кадров для соцсетей.</p>
+        <p class="reveal reveal--d1">Работаю с естественным светом и без жёстких постановок. Не прошу замереть и улыбнуться, а <span class="accent">жду настоящее</span>: смех, взгляд, случайное движение. Люблю закат и контровой свет, поэтому съёмку стараюсь ставить на вечерние часы.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Работы -->
+  <section class="section works" id="works" aria-labelledby="works-title">
+    <div class="head">
+      <p class="eyebrow reveal">Избранное</p>
+      <h2 class="h2 reveal reveal--d1" id="works-title">Работы</h2>
+      <p class="head__note reveal reveal--d2">Кадры с разных съёмок: свадьбы, love story и город на закате. По ним видно, как я работаю со светом и в какой момент нажимаю кнопку.</p>
+    </div>
+    <div class="mosaic">
+      <div class="mosaic__col mosaic__col--a">
+        <figure class="mosaic__item ar-23 reveal"><picture><source type="image/webp" srcset="img/wed-sunset-kiss.webp"><img src="img/wed-sunset-kiss.jpg" alt="Поцелуй пары в контровом свете заката" loading="lazy" width="1706" height="2560"></picture></figure>
+        <figure class="mosaic__item ar-32 reveal reveal--d1"><picture><source type="image/webp" srcset="img/city-shooting-sunset.webp"><img src="img/city-shooting-sunset.jpg" alt="Люди снимают закат на телефоны у воды" loading="lazy" width="1280" height="854"></picture></figure>
+        <figure class="mosaic__item ar-32 reveal"><picture><source type="image/webp" srcset="img/wed-hug.webp"><img src="img/wed-hug.jpg" alt="Тёплое объятие гостей на свадебном банкете" loading="lazy" width="1800" height="1200"></picture></figure>
+      </div>
+      <div class="mosaic__col mosaic__col--b">
+        <figure class="mosaic__item ar-32 reveal reveal--d1"><picture><source type="image/webp" srcset="img/road-sunset-car.webp"><img src="img/road-sunset-car.jpg" alt="Автомобиль на фоне горящего вечернего заката" loading="lazy" width="1280" height="854"></picture></figure>
+        <figure class="mosaic__item ar-23 reveal"><picture><source type="image/webp" srcset="img/wed-bouquet-dark.webp"><img src="img/wed-bouquet-dark.jpg" alt="Невеста с букетом на тёмном фоне, рука на её лице" loading="lazy" width="1667" height="2500"></picture></figure>
+        <figure class="mosaic__item ar-32 reveal reveal--d1"><picture><source type="image/webp" srcset="img/city-sails-ship.webp"><img src="img/city-sails-ship.jpg" alt="Корабль с алыми парусами на Неве" loading="lazy" width="1280" height="854"></picture></figure>
+        <figure class="mosaic__item ar-23 reveal"><picture><source type="image/webp" srcset="img/wed-morning.webp"><img src="img/wed-morning.jpg" alt="Невеста утром на кровати в мягком свете" loading="lazy" width="1667" height="2500"></picture></figure>
+      </div>
+      <div class="mosaic__col mosaic__col--c">
+        <figure class="mosaic__item ar-23 reveal"><picture><source type="image/webp" srcset="img/city-bridge-sunset.webp"><img src="img/city-bridge-sunset.jpg" alt="Закатное солнце над мостом и потоком машин" loading="lazy" width="1080" height="1620"></picture></figure>
+        <figure class="mosaic__item ar-32 reveal reveal--d1"><picture><source type="image/webp" srcset="img/wed-dance.webp"><img src="img/wed-dance.jpg" alt="Танец на свадьбе в тёплом вечернем свете" loading="lazy" width="1800" height="1200"></picture></figure>
+        <figure class="mosaic__item ar-23 reveal"><picture><source type="image/webp" srcset="img/wed-glasses.webp"><img src="img/wed-glasses.jpg" alt="Невеста в очках-сердечках смеётся" loading="lazy" width="1706" height="2560"></picture></figure>
+        <figure class="mosaic__item ar-32 reveal reveal--d1"><picture><source type="image/webp" srcset="img/city-fortress.webp"><img src="img/city-fortress.jpg" alt="Петропавловская крепость на закате" loading="lazy" width="1280" height="854"></picture></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="head">
+      <p class="eyebrow reveal">Что снимаю</p>
+      <h2 class="h2 reveal reveal--d1" id="services-title">Услуги</h2>
+      <p class="head__note reveal reveal--d2">Четыре формата съёмки. Что входит в конкретный день, сколько это займёт и сколько стоит, обсуждаем в переписке под вашу задачу.</p>
+    </div>
+    <div class="service reveal">
+      <span class="service__num">01</span>
+      <div class="service__body">
+        <h3 class="service__name">Свадьбы и love story</h3>
+        <p class="service__desc">Сборы, церемония, прогулка и вечер. Снимаю день целиком или его часть: эмоции гостей, детали, первый танец. Love story - отдельная короткая съёмка на прогулке, чаще всего на закате.</p>
+      </div>
+      <div class="service__photo"><picture><source type="image/webp" srcset="img/wed-sunset-kiss.webp"><img src="img/wed-sunset-kiss.jpg" alt="Свадебный кадр: пара целуется на закате" loading="lazy" width="1706" height="2560"></picture></div>
+    </div>
+    <div class="service reveal">
+      <span class="service__num">02</span>
+      <div class="service__body">
+        <h3 class="service__name">Портреты</h3>
+        <p class="service__desc">Личные и деловые. Снимаю на улице или в интерьере, без скованных поз: сначала разговариваем, потом ловлю вас настоящего. Подходит для соцсетей, резюме и просто для себя.</p>
+      </div>
+      <div class="service__photo"><picture><source type="image/webp" srcset="img/wed-bride-portrait.webp"><img src="img/wed-bride-portrait.jpg" alt="Крупный портрет девушки через фату" loading="lazy" width="1082" height="1624"></picture></div>
+    </div>
+    <div class="service reveal">
+      <span class="service__num">03</span>
+      <div class="service__body">
+        <h3 class="service__name">Репортаж</h3>
+        <p class="service__desc">Праздники, мероприятия, городские события. Работаю незаметно и снимаю то, что происходит само: реакции людей, разговоры, атмосферу площадки. Без построений и командного «а теперь все сюда».</p>
+      </div>
+      <div class="service__photo service__photo--wide"><picture><source type="image/webp" srcset="img/city-sails-ship.webp"><img src="img/city-sails-ship.jpg" alt="Репортажный кадр с городского праздника на воде" loading="lazy" width="1280" height="854"></picture></div>
+    </div>
+    <div class="service reveal">
+      <span class="service__num">04</span>
+      <div class="service__body">
+        <h3 class="service__name">Контент-съёмка</h3>
+        <p class="service__desc">Фото для соцсетей, сайта и рекламы. Собираем серию кадров в одном настроении: человек, продукт, атмосфера места. На выходе набор, из которого удобно публиковать неделями.</p>
+      </div>
+      <div class="service__photo"><picture><source type="image/webp" srcset="img/wed-groom-interior.webp"><img src="img/wed-groom-interior.jpg" alt="Пара в интерьере бара, стильный кадр для контента" loading="lazy" width="1600" height="2400"></picture></div>
+    </div>
+    <p class="services__after reveal">Не нашли свой формат? Напишите, что именно нужно снять, и я скажу, берусь ли и как это лучше сделать.</p>
+  </section>
+
+  <!-- Цитата -->
+  <section class="quote" aria-label="О фотографии">
+    <picture>
+      <source type="image/webp" srcset="img/road-bridge-figure.webp">
+      <img class="quote__img" src="img/road-bridge-figure.jpg" alt="Одинокая фигура на мосту в вечернем свете" loading="lazy" width="1280" height="854">
+    </picture>
+    <blockquote class="quote__box reveal">
+      <p class="quote__text">Закат длится минут двадцать. За это время обычный вечер успевает стать тем, к чему вы будете возвращаться годами.</p>
+      <footer class="quote__caption">Young Photo, Киров</footer>
+    </blockquote>
+  </section>
+
+  <!-- Контакты -->
+  <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+    <p class="eyebrow reveal">Связаться</p>
+    <h2 class="contacts__title reveal reveal--d1" id="contacts-title">Давайте снимем вашу историю</h2>
+    <p class="contacts__lead reveal reveal--d1">Напишите в VK: расскажите, что за событие, какая дата и где. Отвечу, свободен ли этот день, и предложу, как лучше выстроить съёмку.</p>
+    <!-- placeholder: заменить на реальный номер -->
+    <a class="contacts__phone reveal" href="tel:+79000000000">+7 900 000-00-00</a>
+    <div class="contacts__actions reveal reveal--d1">
+      <a class="btn-pill" href="https://vk.com/youngphotooo" target="_blank" rel="noopener">Написать в VK</a>
+      <a class="link-plain" href="https://vk.com/sanya_young" target="_blank" rel="noopener">Личная страница VK</a>
+    </div>
+    <p class="contacts__note reveal reveal--d2">Никаких форм - просто напишите или позвоните.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__mark">YOUNG&nbsp;PHOTO</span>
+    <span>&copy; Young Photo, Киров</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
