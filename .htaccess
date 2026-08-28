@@ -44,11 +44,10 @@
 ErrorDocument 404 /index.html
 
 # ---------- принудительный https ----------
-# ВКЛЮЧИТЬ ПОСЛЕ привязки домена и выпуска сертификата, не раньше:
-# иначе на техническом адресе хостинга может получиться бесконечный редирект.
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTPS} !=on
-#   RewriteCond %{HTTP:X-Forwarded-Proto} !https
-#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-# </IfModule>
+# Включён 28.08.2026, после выпуска сертификата Let's Encrypt.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
