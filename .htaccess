@@ -1,0 +1,54 @@
+# Настройки для Apache (Sprinthost и большинство виртуальных хостингов).
+# Задача: сжимать текст, надолго кэшировать фото и шрифты, отдавать правильные типы файлов.
+
+# ---------- сжатие ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  # шрифты woff2 и фотографии уже сжаты, повторно не трогаем
+</IfModule>
+
+# ---------- типы файлов ----------
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+  AddType image/avif .avif
+</IfModule>
+
+# ---------- кэш в браузере ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # фотографии и шрифты не меняются, держим год
+  ExpiresByType image/jpeg      "access plus 1 year"
+  ExpiresByType image/webp      "access plus 1 year"
+  ExpiresByType image/png       "access plus 1 year"
+  ExpiresByType image/svg+xml   "access plus 1 year"
+  ExpiresByType font/woff2      "access plus 1 year"
+  # разметку кэшируем ненадолго, чтобы правки было видно сразу
+  ExpiresByType text/html       "access plus 10 minutes"
+  ExpiresByType text/css        "access plus 7 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|webp|png|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # базовая защита
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ---------- страница 404 ----------
+ErrorDocument 404 /index.html
+
+# ---------- принудительный https ----------
+# ВКЛЮЧИТЬ ПОСЛЕ привязки домена и выпуска сертификата, не раньше:
+# иначе на техническом адресе хостинга может получиться бесконечный редирект.
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} !=on
+#   RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# </IfModule>
